@@ -5,8 +5,9 @@
     <TargetFramework>net472</TargetFramework>
     <PackageId>TestAutoUpdateRepo</PackageId>
     <Title>TestAutoUpdateRepo</Title>
-    <Version>1.0.0</Version>
-    <Authors>Boris Rumyantsev</Authors>
+    <Version>1.2.1</Version>
+    <Authors>REGATA</Authors>
+    <Owners>Boris Rumyantsev</Owners>
     <Company>REGATA, FLNP, JINR</Company>
     <PackageDescription>TestAutoUpdateRepo</PackageDescription>
     <Copyright>2020</Copyright>
@@ -14,8 +15,33 @@
     <PackageReleaseNotes>Description Test</PackageReleaseNotes>
     <RepositoryUrl>https://github.com/regata-jinr/TestAutoUpdateRepo</RepositoryUrl>
     <IconUrl>https://github.com/regata-jinr/TestAutoUpdateRepo/TestAutoUpdateRepo.ico</IconUrl>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+
   </PropertyGroup>
+
+  <Choose>
+    <When Condition=" '$(Configuration)'=='Debug' ">
+      <PropertyGroup>
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>full</DebugType>
+        <Optimize>false</Optimize>
+        <OutputPath>.\bin\Debug\</OutputPath>
+        <DefineConstants>DEBUG;TRACE</DefineConstants>
+      </PropertyGroup>
+      <ItemGroup>
+        <Compile Include="UnitTesting\*.cs" />
+        <Reference Include="NUnit.dll" />
+      </ItemGroup>
+    </When>
+    <When Condition=" '$(Configuration)'=='Release' ">
+      <PropertyGroup>
+        <DebugSymbols>false</DebugSymbols>
+        <Optimize>true</Optimize>
+        <OutputPath>.\bin\Release\</OutputPath>
+        <DefineConstants>TRACE</DefineConstants>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+      </PropertyGroup>
+    </When>
+  </Choose>
 
   <ItemGroup>
     <PackageReference Include="squirrel.windows" Version="1.9.1">
