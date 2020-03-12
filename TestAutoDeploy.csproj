@@ -1,21 +1,25 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
-    <TargetFramework>net472</TargetFramework>
-    <PackageId>TestAutoUpdateRepo</PackageId>
-    <Title>TestAutoUpdateRepo</Title>
-    <Version>1.2.1</Version>
+    <OutputType>WinExe</OutputType>
+    <!-- <RuntimeIdentifier>win10-x64</RuntimeIdentifier> -->
+    <!-- <PublishSingleFile>true</PublishSingleFile> -->
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <!-- <TargetFramework>net472</TargetFramework> -->
+    <PackageId>TestAutoDeploy</PackageId>
+    <Title>TestAutoDeploy</Title>
+    <Version>1.3.0</Version>
+    <tag>v1.3.0</tag>
     <Authors>REGATA</Authors>
     <Owners>Boris Rumyantsev</Owners>
     <Company>REGATA, FLNP, JINR</Company>
-    <PackageDescription>TestAutoUpdateRepo</PackageDescription>
+    <PackageDescription>TestAutoDeploy</PackageDescription>
     <Copyright>2020</Copyright>
     <PackageReleaseTitle>Header Test</PackageReleaseTitle>
     <PackageReleaseNotes>Description Test</PackageReleaseNotes>
-    <RepositoryUrl>https://github.com/regata-jinr/TestAutoUpdateRepo</RepositoryUrl>
-    <IconUrl>https://github.com/regata-jinr/TestAutoUpdateRepo/TestAutoUpdateRepo.ico</IconUrl>
-
+    <projectUrl>https://github.com/regata-jinr/TestAutoUpdateRepo</projectUrl>
+    <PackageIcon>TestAutoDeploy.ico</PackageIcon>
+    <ApplicationIcon>TestAutoDeploy.ico</ApplicationIcon>
   </PropertyGroup>
 
   <Choose>
@@ -38,7 +42,7 @@
         <Optimize>true</Optimize>
         <OutputPath>.\bin\Release\</OutputPath>
         <DefineConstants>TRACE</DefineConstants>
-        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <!-- <GeneratePackageOnBuild>true</GeneratePackageOnBuild> -->
       </PropertyGroup>
     </When>
   </Choose>
@@ -47,7 +51,6 @@
     <PackageReference Include="squirrel.windows" Version="1.9.1">
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+    <None Include="TestAutoDeploy.ico" Pack="true" PackagePath="" />
   </ItemGroup>
-
-
 </Project>
