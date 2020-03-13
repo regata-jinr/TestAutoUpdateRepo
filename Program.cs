@@ -17,7 +17,7 @@ namespace TestAutoSquirrel
     {
       System.Reflection.Assembly assembly = System.Reflection.Assembly.GetExecutingAssembly();
       FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
-      Console.WriteLine($"Here is TestApp-{fvi.FileVersion}. Press any 'enter' for exit:");
+      Console.WriteLine($"Here is TestApp-{fvi.FileVersion} with secret: {args[0]}. Press any 'enter' for exit:");
       Console.ReadLine();
     }
   }
